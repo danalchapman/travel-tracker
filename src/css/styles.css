@@ -35,7 +35,7 @@ body {
 .long-card {
   background-color: #9D653E;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 3px;
-  height: 100px;
+  height: 150px;
   width: 900px;
 }
 
@@ -49,11 +49,11 @@ body {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 3px;
   display: flex;
   justify-content: space-evenly;
-  height: 500px;
+  height: 400px;
   width: 275px;
 }
 
 .card-text {
-  color: pink;
+  color: goldenrod;
   font-style: italic;
 }
