@@ -8,8 +8,8 @@ body {
 /* Navigation */
 .nav-menu {
   align-items: center;
-  background-color: lavender;
-  color: rebeccapurple;
+  background-color: #343D5B;
+  color: goldenrod;
   display: flex;
   justify-content: space-around;
 }
@@ -20,27 +20,40 @@ body {
 
 /* Main */
 .main-content {
-  background-color: skyblue;
+  background-image: linear-gradient(#343D5B, #81566A, #9D653E);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   height: 100vh;
 }
 
+.content {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .long-card {
-  background-color: coral;
-  height: 90px;
-  margin: 15px;
+  background-color: #9D653E;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 3px;
+  height: 100px;
   width: 900px;
 }
 
 .card-container {
   display: flex;
+  justify-content: space-evenly;
 }
 
 .card {
-  background-color: darkolivegreen;
-  height: 250px;
-  margin: 15px;
-  width: 250px;
+  background-color: #81566A;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 3px;
+  display: flex;
+  justify-content: space-evenly;
+  height: 500px;
+  width: 275px;
+}
+
+.card-text {
+  color: pink;
+  font-style: italic;
 }
