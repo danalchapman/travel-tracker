@@ -1,3 +1,128 @@
+/* Global Styling */
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  background-color: grey;
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  margin: 0px;
+}
+
+/* Navigation */
+.nav-menu {
+  align-items: center;
+  background-color: #343D5B;
+  color: antiquewhite;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-greeting {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.nav-users {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.design {
+  background-color: #81566A;
+  border: 1px solid antiquewhite;
+  border-radius: 8%;
+  color: antiquewhite;
+  cursor: not-allowed;
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  font-size: 10px;
+  height: 20px;
+  margin-left: 10px;
+  padding: 3px;
+  width: 100px;
+}
+
+/* Main */
+.main-content {
+  background-image: linear-gradient(#343D5B, #81566A, #9D653E);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100vh;
+}
+
+/* Trip Bars */
+.content {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.long-card {
+  background-color: #9D653E;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 3px;
+  display: flex;
+  justify-content: space-evenly;
+  height: 150px;
+  width: 900px;
+}
+
+.main-new-trip {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.new-trip-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 10px;
+  width: 400px;
+}
+
+.new-info {
+  color: antiquewhite;
+  width: 175px;
+}
+
+.input-box {
+  width: 125px;
+}
+
+.submit-box {
+  align-items: center;
+}
+
+/* Trip Footer */
+.footer-yearly-spent {
+  color: antiquewhite;
+  font-size: 18px;
+}
+
+/* Trip Cards */
+.card-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card {
+  align-items: center;
+  background-color: #81566A;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 400px;
+  width: 275px;
+}
+
+.card-text {
+  text-align: left;
+  color: antiquewhite;
+  font-style: italic;
+}
+
+.info-card {
+  color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  justify-content: space-between;
+  width: 225px;
 }
