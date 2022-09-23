@@ -16,7 +16,28 @@ body {
 }
 
 .nav-greeting {
+  font-size: 14px;
   font-style: italic;
+}
+
+.nav-users {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-change-user {
+  background-color: #81566A;
+  border: 1px solid goldenrod;
+  border-radius: 8%;
+  color: goldenrod;
+  cursor: not-allowed;
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  font-size: 10px;
+  height: 20px;
+  margin-left: 10px;
+  padding: 3px;
+  width: 100px;
 }
 
 /* Main */
