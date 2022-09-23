@@ -1,7 +1,7 @@
 import { expect } from "chai"
 import Traveler from "../src/traveler"
 
-describe.only('Traveler', () => {
+describe('Traveler', () => {
     let traveler1
 
     beforeEach(() => {
