@@ -11,12 +11,28 @@
       <h1 class="nav-title">Dusk & Dawn Destinations</h1>
       <section class="nav-users">
         <p class="nav-greeting">Hello, firstName</p>
-        <button class="nav-change-user">Change User</button>
+        <button class="nav-change-user design">Change User</button>
       </section>
     </nav>
     <section class="main-content">
       <article class="main-header content">
-        <section class="main-new-trip long-card"></section>
+        <form class="main-new-trip long-card">
+          <section class="new-trip-box">
+            <label class="new-trip-date new-info" for="trip-date"> Date </label>
+            <label class="new-trip-travelers new-info" for="trip-travelers"> Amount of Travelers </label>
+            <label class="new-trip-duration new-info" for="trip-duration"> Duration </label>
+            <label class="new-trip-destination new-info" for="trip-destination"> Destination </label>
+          </section>
+          <section class="new-trip-box">
+            <input class="new-trip-date-input input-box" type="date" name="trip-date" id="trip-date-input">
+            <input class="new-trip-travelers-input input-box" type="number" name="trip-travelers" id="trip-travelers-input">
+            <input class="new-trip-duration-input input-box" type="number" name="trip-duration" id="trip-duration-input">
+            <input class="new-trip-destination-input input-box" type="text" name="trip-destination" id="trip-destination-input">
+          </section>
+          <section class="new-trip-box submit-box">
+            <button class="submit-new-trip design">Submit</button>
+          </section>
+        </form>
       </article>
       <article class="card-container">
         <section class="main-past-trips card">
