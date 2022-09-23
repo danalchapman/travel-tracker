@@ -9,6 +9,7 @@ body {
 .nav-menu {
   align-items: center;
   background-color: #343D5B;
+  border: 1px solid orange;
   color: goldenrod;
   display: flex;
   justify-content: space-around;
@@ -45,15 +46,27 @@ body {
 }
 
 .card {
+  align-items: center;
   background-color: #81566A;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 3px;
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   height: 400px;
   width: 275px;
 }
 
 .card-text {
+  text-align: left;
   color: goldenrod;
   font-style: italic;
+}
+
+.info-card {
+  color: gold;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  justify-content: space-between;
+  width: 225px;
 }
