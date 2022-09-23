@@ -1,7 +1,7 @@
 class Traveler {
     constructor(travelerData) {
-
+        
     }
 }
 
-module.exports = Traveler
+export default Traveler

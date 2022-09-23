@@ -1,14 +1,22 @@
-const chai = require('chai')
-const expect = chai.expect
+import { expect } from "chai"
+import Traveler from "../src/traveler"
 
-const Traveler = require('../src/traveler')
+describe.only('Traveler', () => {
+    let traveler1
 
-describe.only('Traveler', function() {
+    beforeEach(() => {
+        traveler1 = new Traveler({
+            id: 1,
+            name: "Ham Leadbeater",
+            travelerType: "relaxer"
+        })
+    })
 
-    it('should be a function', function() {
-        const traveler = new Traveler()
+    it('should be a function', () => {
         expect(Traveler).to.be.a('function')
     })
 
-
+    // it('should be an instance of traveler', () => {
+    //     expect(traveler1).to.be.an.instanceOf(Traveler)
+    // }
 })
