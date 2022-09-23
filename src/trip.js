@@ -11,4 +11,4 @@ class Trip {
     }
 }
 
-export default Trip
+export default Trip // export default as its the only thing in the file
