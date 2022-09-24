@@ -28,5 +28,5 @@ const tripData = [
         "duration": 17,
         "status": "approved",
         "suggestedActivities": []
-    }
+    },
 ]
