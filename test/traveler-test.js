@@ -31,4 +31,9 @@ describe('Traveler', () => {
     it('should be able to store a travelers type', () => {
         expect(traveler1.travelerType).to.equal("relaxer")
     })
+
+    it('should be able to return the travelers first name', () => {
+        const firstName = traveler1.returnFirstName()
+        expect(firstName).to.equal("Ham")
+    })
 })
