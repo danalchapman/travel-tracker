@@ -58,11 +58,11 @@ describe('Trip', () => {
     })
 
     it.skip('should be able to return all of a travelers trip data', () => {
-        const getAllTrips = trip1.displayAllTrips()
-
+        const getAllTrips = trip1.returnAllTrips()
+        expect(getAllTrips).to.equal()
     })
 
     it.skip('should be able to return the yearly trips cost for a traveler', () => {
-        const getYearlyTripsCost = trip1.displayYearlyTripsCost()
+        const getYearlyTripsCost = trip1.returnYearlyTripsCost()
     })
 })
