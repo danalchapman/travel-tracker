@@ -14,15 +14,15 @@ body {
   justify-content: space-around;
 }
 
-.nav-greeting {
-  font-size: 14px;
-  font-style: italic;
-}
-
 .nav-users {
   align-items: center;
   display: flex;
   justify-content: space-around;
+}
+
+.nav-greeting {
+  font-size: 14px;
+  font-style: italic;
 }
 
 .design {

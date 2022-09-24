@@ -4,9 +4,6 @@ import Traveler from './traveler'
 import Trip from './trip'
 import { getDestinationData, getSingleTravelerData, getTripData } from './apiCalls'
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-// import './images/turing-logo.png'
-
 /* Query Selectors */
 const navGreeting = document.querySelector('#nav-greeting-name')
 const pastTrips = document.querySelector('#past-trips')
