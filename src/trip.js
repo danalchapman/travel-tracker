@@ -13,7 +13,7 @@ class Trip {
         this.destination = {}
     }
 
-    storeDestinations(destinationData) {
+    storeDestination(destinationData) {
         const tripDestination = destinationData.find(destination => destination.id === this.destinationID)
         this.destination = new Destination(tripDestination)
     }

@@ -15,7 +15,7 @@ describe('Traveler', () => {
         })
 
         trips = tripData.map(trip => new Trip(trip))
-        trips.forEach(trip => trip.storeDestinations(destinationData))
+        trips.forEach(trip => trip.storeDestination(destinationData))
     })
 
     it('should be a function', () => {

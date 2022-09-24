@@ -27,6 +27,10 @@ describe('Destination', () => {
         expect(destination1.id).to.equal(1)
     })
 
+    it('should be able to store a destination name', () => {
+        expect(destination1.name).to.equal("Lima, Peru")
+    })
+
     it('should be able to store a destinations estimated lodging cost per day for all travelers', () => {
         expect(destination1.lodgingCost).to.equal(70)
     })

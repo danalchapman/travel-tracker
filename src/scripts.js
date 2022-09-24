@@ -31,7 +31,7 @@ const loadAPIData = () => {
         tripData = responses[2].trips
             .filter(trip => trip.userID === travelerID)
             .map(trip => new Trip(trip))
-        tripData.forEach(trip => trip.storeDestinations(destinationData))
+        tripData.forEach(trip => trip.storeDestination(destinationData))
         // console.log("Promise:", tripData)
     })
     .then(() => {
@@ -57,7 +57,6 @@ function handleTrips(card, trips) {
                     <p class="trip-destination">Destination: ${trip.destination.name}</p>
                     <p class="trip-date">Date: ${trip.date}</p>
                     <p class="trip-duration">Duration: ${trip.duration} days</p>
-                    <p class="trip-status">Status: ${trip.status}</p>
                 </section>
             `
         }).join('')
