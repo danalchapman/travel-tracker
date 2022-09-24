@@ -56,4 +56,8 @@ describe('Trip', () => {
     it('should be able to store a trips suggested activities', () => {
         expect(trip1.suggestedActivities).to.deep.equal([])
     })
+
+    it('should be able to store the destinations in a new instance', () => {
+        expect(trip1.destination).to.deep.equal({})
+    })
 })
