@@ -28,11 +28,11 @@ describe('Destination', () => {
     })
 
     it('should be able to store a destinations estimated lodging cost per day for all travelers', () => {
-        expect(destination1.estimatedLodgingCostPerDay).to.equal(70)
+        expect(destination1.lodgingCost).to.equal(70)
     })
 
     it('should be able to store a destinations estimated flight cost per traveler', () => {
-        expect(destination1.estimatedFlightCostPerPerson).to.equal(400)
+        expect(destination1.flightCost).to.equal(400)
     })
 
     it('should be able to store an image of the destination', () => {

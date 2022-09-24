@@ -1,8 +1,11 @@
 import { expect } from "chai"
 import Traveler from "../src/traveler"
+import Trip from "../src/trip"
+import { tripData } from './mock-data/trip-data'
+import { destinationData } from './mock-data/destination-data'
 
 describe('Traveler', () => {
-    let traveler1
+    let traveler1, trips
 
     beforeEach(() => {
         traveler1 = new Traveler({
@@ -10,6 +13,9 @@ describe('Traveler', () => {
             name: "Ham Leadbeater",
             travelerType: "relaxer"
         })
+
+        trips = tripData.map(trip => new Trip(trip))
+        trips.forEach(trip => trip.storeDestinations(destinationData))
     })
 
     it('should be a function', () => {
@@ -35,5 +41,10 @@ describe('Traveler', () => {
     it('should be able to return the travelers first name', () => {
         const firstName = traveler1.returnFirstName()
         expect(firstName).to.equal("Ham")
+    })
+
+    it('should be able to return the yearly trips cost for a traveler', () => {
+        const yearlyTripsCost = traveler1.returnYearlyTripCost(trips, 2022)
+        expect(yearlyTripsCost).to.equal("7326.00")
     })
 })

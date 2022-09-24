@@ -8,10 +8,10 @@ export const getTravelerData = () => {
     .then(response => response.json())
 }
 
-// export const getSingleTravelerData = (id) => {
-//     return fetch(`http://localhost:3001/api/v1/travelers/${id}`)
-//     .then(response => response.json())
-// }
+export const getSingleTravelerData = (id) => {
+    return fetch(`http://localhost:3001/api/v1/travelers/${id}`)
+    .then(response => response.json())
+}
 
 export const getTripData = () => { 
     return fetch('http://localhost:3001/api/v1/trips')

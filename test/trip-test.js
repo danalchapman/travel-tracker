@@ -56,13 +56,4 @@ describe('Trip', () => {
     it('should be able to store a trips suggested activities', () => {
         expect(trip1.suggestedActivities).to.deep.equal([])
     })
-
-    it.skip('should be able to return all of a travelers trip data', () => {
-        const getAllTrips = trip1.returnAllTrips()
-        expect(getAllTrips).to.equal()
-    })
-
-    it.skip('should be able to return the yearly trips cost for a traveler', () => {
-        const getYearlyTripsCost = trip1.returnYearlyTripsCost()
-    })
 })

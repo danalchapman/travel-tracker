@@ -1,4 +1,4 @@
-const destinationData = [
+export const destinationData = [
     {
         "id": 1,
         "destination": "Lima, Peru",
