@@ -10,6 +10,19 @@ import { getDestinationData, getSingleTravelerData, getTripData } from './apiCal
 
 /* Query Selectors */
 const navGreeting = document.querySelector('#nav-greeting-name')
+const pastTripDestination = document.querySelector('#trip-destination-past')
+const pastTripDate = document.querySelector('#trip-date-past')
+const pastTripDuration = document.querySelector('#trip-duration-past')
+const pastTripStatus = document.querySelector('#trip-status-past')
+const pendingTripDestination = document.querySelector('#trip-destination-pending')
+const pendingTripDate = document.querySelector('#trip-date-pending')
+const pendingTripDuration = document.querySelector('#trip-duration-pending')
+const pendingTripStatus = document.querySelector('#trip-status-pending')
+const upcomingTripDestination = document.querySelector('#trip-destination-approved')
+const upcomingTripDate = document.querySelector('#trip-date-approved')
+const upcomingTripDuration = document.querySelector('#trip-duration-approved')
+const upcomingTripStatus = document.querySelector('#trip-status-approved')
+const yearlyTotal = document.querySelector('#yearly-total')
 
 /* Instances */
 let destinationData, travelerData, tripData
@@ -19,8 +32,8 @@ const travelerID = 2 // need to convert when get to iteration 4 (log in page)
 const loadAPIData = () => {
     return Promise.all([getDestinationData(), getSingleTravelerData(travelerID), getTripData()])
     .then(responses => {
-        destinationData = responses[0].destinations.map(destination => new Destination(destination))
-        // console.log(destinationData)
+        destinationData = responses[0].destinations
+        console.log(destinationData)
         
         travelerData = new Traveler(responses[1])
         // console.log(travelerData)
@@ -29,10 +42,11 @@ const loadAPIData = () => {
             .filter(trip => trip.userID === travelerID)
             .map(trip => new Trip(trip))
         tripData.forEach(trip => trip.storeDestinations(destinationData))
-        // console.log(tripData)
+        console.log("Promise:", tripData)
     })
     .then(() => {
         displayTravelerGreeting()
+        displayYearlyTripTotal()
     })
 }
 
@@ -42,9 +56,14 @@ function displayTravelerGreeting() {
     navGreeting.innerHTML = `Hello, ${travelerData.returnFirstName()}!`
 }
 
-// displayAllTrips
+function displayAllTrips() {
+    
+}
 
-// displayYearlyTripTotal(trips, year)
+function displayYearlyTripTotal() {
+    yearlyTotal.innerHTML = `Total Spent This Year: $${travelerData.returnYearlyTripCost(tripData, 2020)}`
+    console.log(tripData)
+}
 
 // Iteration 2 - Interaction
 
