@@ -1,6 +1,5 @@
 /* Imports */
 import './css/styles.css'
-import Destination from './destination'
 import Traveler from './traveler'
 import Trip from './trip'
 import { getDestinationData, getSingleTravelerData, getTripData } from './apiCalls'
@@ -10,18 +9,9 @@ import { getDestinationData, getSingleTravelerData, getTripData } from './apiCal
 
 /* Query Selectors */
 const navGreeting = document.querySelector('#nav-greeting-name')
-const pastTripDestination = document.querySelector('#trip-destination-past')
-const pastTripDate = document.querySelector('#trip-date-past')
-const pastTripDuration = document.querySelector('#trip-duration-past')
-const pastTripStatus = document.querySelector('#trip-status-past')
-const pendingTripDestination = document.querySelector('#trip-destination-pending')
-const pendingTripDate = document.querySelector('#trip-date-pending')
-const pendingTripDuration = document.querySelector('#trip-duration-pending')
-const pendingTripStatus = document.querySelector('#trip-status-pending')
-const upcomingTripDestination = document.querySelector('#trip-destination-approved')
-const upcomingTripDate = document.querySelector('#trip-date-approved')
-const upcomingTripDuration = document.querySelector('#trip-duration-approved')
-const upcomingTripStatus = document.querySelector('#trip-status-approved')
+const pastTrips = document.querySelector('#past-trips')
+const pendingTrips = document.querySelector('#pending-trips')
+const upcomingTrips = document.querySelector('#upcoming-trips')
 const yearlyTotal = document.querySelector('#yearly-total')
 
 /* Instances */
@@ -33,7 +23,7 @@ const loadAPIData = () => {
     return Promise.all([getDestinationData(), getSingleTravelerData(travelerID), getTripData()])
     .then(responses => {
         destinationData = responses[0].destinations
-        console.log(destinationData)
+        // console.log(destinationData)
         
         travelerData = new Traveler(responses[1])
         // console.log(travelerData)
@@ -42,11 +32,12 @@ const loadAPIData = () => {
             .filter(trip => trip.userID === travelerID)
             .map(trip => new Trip(trip))
         tripData.forEach(trip => trip.storeDestinations(destinationData))
-        console.log("Promise:", tripData)
+        // console.log("Promise:", tripData)
     })
     .then(() => {
         displayTravelerGreeting()
         displayYearlyTripTotal()
+        displayTrips()
     })
 }
 
@@ -56,13 +47,32 @@ function displayTravelerGreeting() {
     navGreeting.innerHTML = `Hello, ${travelerData.returnFirstName()}!`
 }
 
-function displayAllTrips() {
-    
+function handleTrips(card, trips) {
+    if (!trips.length) {
+        card.innerHTML = 'No trips found!'
+    } else {
+        card.innerHTML = trips.map(trip => {
+            return `
+                <section class="info-card">
+                    <p class="trip-destination">Destination: ${trip.destination.name}</p>
+                    <p class="trip-date">Date: ${trip.date}</p>
+                    <p class="trip-duration">Duration: ${trip.duration} days</p>
+                    <p class="trip-status">Status: ${trip.status}</p>
+                </section>
+            `
+        }).join('')
+    }
+}
+
+function displayTrips() {
+    const sortedTrips = travelerData.sortTrips(tripData, "2020/03/01")
+    handleTrips(pastTrips, sortedTrips.past)
+    handleTrips(pendingTrips, sortedTrips.pending)
+    handleTrips(upcomingTrips, sortedTrips.upcoming)
 }
 
 function displayYearlyTripTotal() {
     yearlyTotal.innerHTML = `Total Spent This Year: $${travelerData.returnYearlyTripCost(tripData, 2020)}`
-    console.log(tripData)
 }
 
 // Iteration 2 - Interaction
