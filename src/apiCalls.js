@@ -13,7 +13,7 @@ export const getTravelerData = () => {
 //     .then(response => response.json())
 // }
 
-export const getTripData = () => { // export each fetch
+export const getTripData = () => { 
     return fetch('http://localhost:3001/api/v1/trips')
     .then(response => response.json())
 }
