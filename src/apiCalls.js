@@ -4,10 +4,10 @@ export const getDestinationData = () => {
     .then(response => response.json())
 }
 
-export const getTravelerData = () => {
-    return fetch('http://localhost:3001/api/v1/travelers')
-    .then(response => response.json())
-}
+// export const getTravelerData = () => {
+//     return fetch('http://localhost:3001/api/v1/travelers')
+//     .then(response => response.json())
+// }
 
 export const getSingleTravelerData = (id) => {
     return fetch(`http://localhost:3001/api/v1/travelers/${id}`)

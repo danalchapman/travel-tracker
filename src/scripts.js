@@ -56,8 +56,8 @@ function handleTrips(card, trips) {
                 <section class="info-card">
                     <p class="trip-destination">Destination: ${trip.destination.name}</p>
                     <p class="trip-date">Date: ${trip.date}</p>
-                    <p class="trip-travelers">Travelers: ${trip.travelers} Adults</p>
-                    <p class="trip-duration">Duration: ${trip.duration} days</p>
+                    <p class="trip-travelers">Travelers: ${trip.travelers} Adult(s)</p>
+                    <p class="trip-duration">Duration: ${trip.duration} Day(s)</p>
                 </section>
             `
         }).join('')
