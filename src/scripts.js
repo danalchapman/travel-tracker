@@ -102,17 +102,18 @@ function onSubmit(e) {
     e.preventDefault()
     const newTripInfo = createNewTrip()
     return Promise.all([postNewTrip(newTripInfo)])
-        .then(response => {
-            const newTrip = new Trip(response[0].newTrip)
-            newTrip.storeDestination(destinationData)
-            tripData.push(newTrip)
-            displayTrips()
-            newTripDate.value = ''
-            newTripTravelers.value = ''
-            newTripDuration.value = ''
-            newTripDestination.value = '0'
-            newTripTotal.innerText = '0.00'
-        })
+    .then(response => {
+        const newTrip = new Trip(response[0].newTrip)
+        newTrip.storeDestination(destinationData)
+        tripData.push(newTrip)
+        displayTrips()
+        newTripDate.value = ''
+        newTripTravelers.value = ''
+        newTripDuration.value = ''
+        newTripDestination.value = '0'
+        newTripTotal.innerText = '0.00'
+        checkSubmitEligibility()
+    })
 }
 
 function renderNewTripPrice() {
