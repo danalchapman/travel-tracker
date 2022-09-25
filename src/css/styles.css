@@ -89,6 +89,12 @@ body {
   align-items: center;
 }
 
+.total-due {
+  color: antiquewhite;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 /* Trip Footer */
 .footer-yearly-spent {
   color: antiquewhite;
