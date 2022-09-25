@@ -15,9 +15,7 @@ const newTripTravelers = document.querySelector('#trip-travelers-input')
 const newTripDuration = document.querySelector('#trip-duration-input')
 const newTripDestination = document.querySelector('#trip-destination-input')
 const submitNewTripButton = document.querySelector('#new-trip-submit')
-
-/* Event Listeners */
-
+const newTripTotal = document.querySelector('#new-trip-total')
 
 /* Instances */
 let destinationData, travelerData, tripData
@@ -105,12 +103,33 @@ function onSubmit(e) {
             newTrip.storeDestination(destinationData)
             tripData.push(newTrip)
             displayTrips()
+            newTripDate.value = ''
             newTripTravelers.value = ''
             newTripDuration.value = ''
             newTripDestination.value = 'selectDestination'
+            newTripTotal.innerText = '0.00'
         })
 }
 
-/* Event Listener (on Load) */
+function renderNewTripPrice() {
+    const tripTravelers = parseInt(newTripTravelers.value)
+    const tripDuration = parseInt(newTripDuration.value)
+    const tripDestination = parseInt(newTripDestination.value)
+    const newDestination = destinationData.find(destination => {
+        return destination.id === tripDestination
+    })
+    if (tripTravelers && tripDuration && newDestination) {
+        const lodging = newDestination.estimatedLodgingCostPerDay * parseInt(newTripDuration.value)
+        const flight = newDestination.estimatedFlightCostPerPerson * parseInt(newTripTravelers.value)
+        newTripTotal.innerText = ((lodging + flight) * 1.1).toFixed(2)
+    } else {
+        newTripTotal.innerText = '0.00'
+    }
+}
+
+/* Event Listeners */
 window.addEventListener('load', loadAPIData)
 submitNewTripButton.addEventListener('click', onSubmit)
+newTripDestination.addEventListener('change', renderNewTripPrice)
+newTripDuration.addEventListener('input', renderNewTripPrice)
+newTripTravelers.addEventListener('input', renderNewTripPrice)
