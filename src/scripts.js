@@ -14,8 +14,8 @@ const newTripDate = document.querySelector('#trip-date-input')
 const newTripTravelers = document.querySelector('#trip-travelers-input')
 const newTripDuration = document.querySelector('#trip-duration-input')
 const newTripDestination = document.querySelector('#trip-destination-input')
-const submitNewTripButton = document.querySelector('#new-trip-submit')
 const newTripTotal = document.querySelector('#new-trip-total')
+const submitNewTripButton = document.querySelector('#new-trip-submit')
 
 /* Instances */
 let destinationData, travelerData, tripData
@@ -122,6 +122,18 @@ function renderNewTripPrice() {
         newTripTotal.innerText = newTrip.calculateTripCost().toFixed(2)
     } else {
         newTripTotal.innerText = '0.00'
+    }
+
+    checkSubmitEligibility()
+}
+
+function checkSubmitEligibility() {
+    if (newTripDate.value && newTripTravelers.value && newTripDuration.value && parseInt(newTripDestination.value)) {
+        submitNewTripButton.disabled = false
+        submitNewTripButton.classList.remove('disable-button')
+    } else {
+        submitNewTripButton.disabled = true
+        submitNewTripButton.classList.add('disable-button')
     }
 }
 
