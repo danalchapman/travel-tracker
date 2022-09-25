@@ -29,6 +29,4 @@ export const postNewTrip = (data) => {
         }
     })
     .then(response => response.json())
-    // .then(json => console.log('Trip with id <id> successfully posted', json))
-    // .catch(err => console.log("Error:", err))
 }
