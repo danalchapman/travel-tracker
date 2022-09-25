@@ -11,6 +11,9 @@ const pendingTrips = document.querySelector('#pending-trips')
 const upcomingTrips = document.querySelector('#upcoming-trips')
 const yearlyTotal = document.querySelector('#yearly-total')
 
+/* Event Listeners */
+
+
 /* Instances */
 let destinationData, travelerData, tripData
 const travelerID = 2 // need to convert when get to iteration 4 (log in page)
@@ -20,16 +23,13 @@ const loadAPIData = () => {
     return Promise.all([getDestinationData(), getSingleTravelerData(travelerID), getTripData()])
     .then(responses => {
         destinationData = responses[0].destinations
-        // console.log(destinationData)
         
         travelerData = new Traveler(responses[1])
-        // console.log(travelerData)
         
         tripData = responses[2].trips
             .filter(trip => trip.userID === travelerID)
             .map(trip => new Trip(trip))
         tripData.forEach(trip => trip.storeDestination(destinationData))
-        // console.log("Promise:", tripData)
     })
     .then(() => {
         displayTravelerGreeting()
@@ -39,7 +39,6 @@ const loadAPIData = () => {
 }
 
 /* Functions */ // when convert to ES6/arrow functions, function must be declared before invocation
-// Iteration 1 - Dashboard
 function displayTravelerGreeting() {
     navGreeting.innerHTML = `Hello, ${travelerData.returnFirstName()}!`
 }
@@ -71,9 +70,5 @@ function displayYearlyTripTotal() {
     yearlyTotal.innerHTML = `Total Spent This Year: $${travelerData.returnYearlyTripCost(tripData, 2020)}`
 }
 
-// Iteration 2 - Interaction
-
-// Iteration 4 - Login
-
-/* Event Listeners */
+/* Event Listener (on Load) */
 window.addEventListener('load', loadAPIData)
