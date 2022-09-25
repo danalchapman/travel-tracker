@@ -2,7 +2,7 @@
 import './css/styles.css'
 import Traveler from './traveler'
 import Trip from './trip'
-import { getDestinationData, getSingleTravelerData, getTripData } from './apiCalls'
+import { getDestinationData, getSingleTravelerData, getTripData, postNewTrip } from './apiCalls'
 
 /* Query Selectors */
 const navGreeting = document.querySelector('#nav-greeting-name')
@@ -10,6 +10,11 @@ const pastTrips = document.querySelector('#past-trips')
 const pendingTrips = document.querySelector('#pending-trips')
 const upcomingTrips = document.querySelector('#upcoming-trips')
 const yearlyTotal = document.querySelector('#yearly-total')
+const newTripDate = document.querySelector('#trip-date-input')
+const newTripTravelers = document.querySelector('#trip-travelers-input')
+const newTripDuration = document.querySelector('#trip-duration-input')
+const newTripDestination = document.querySelector('#trip-destination-input')
+const submitNewTripButton = document.querySelector('#new-trip-submit')
 
 /* Event Listeners */
 
@@ -35,6 +40,7 @@ const loadAPIData = () => {
         displayTravelerGreeting()
         displayYearlyTripTotal()
         displayTrips()
+        generateDestinationDropdown()
     })
 }
 
@@ -52,6 +58,7 @@ function handleTrips(card, trips) {
                 <section class="info-card">
                     <p class="trip-destination">Destination: ${trip.destination.name}</p>
                     <p class="trip-date">Date: ${trip.date}</p>
+                    <p class="trip-travelers">Travelers: ${trip.travelers} Adults</p>
                     <p class="trip-duration">Duration: ${trip.duration} days</p>
                 </section>
             `
@@ -70,5 +77,40 @@ function displayYearlyTripTotal() {
     yearlyTotal.innerHTML = `Total Spent This Year: $${travelerData.returnYearlyTripCost(tripData, 2020)}`
 }
 
+function generateDestinationDropdown() {
+    newTripDestination.innerHTML += destinationData.map(destination => {
+        return `<option value="${destination.id}">${destination.destination}</option>`
+    }).join('')
+}
+
+function onSubmit(e) {
+    e.preventDefault()
+    const tripDate = newTripDate.value.replaceAll('-', '/')
+    const tripTravelers = parseInt(newTripTravelers.value)
+    const tripDuration = parseInt(newTripDuration.value)
+    const tripDestination = parseInt(newTripDestination.value)
+    const newTripInfo = {
+        id: Date.now(),
+        userID: travelerID,
+        destinationID: tripDestination,
+        travelers: tripTravelers,
+        date: tripDate,
+        duration: tripDuration,
+        status: "pending",
+        suggestedActivities: []
+    }
+    return Promise.all([postNewTrip(newTripInfo)])
+        .then(response => {
+            const newTrip = new Trip(response[0].newTrip)
+            newTrip.storeDestination(destinationData)
+            tripData.push(newTrip)
+            displayTrips()
+            newTripTravelers.value = ''
+            newTripDuration.value = ''
+            newTripDestination.value = 'selectDestination'
+        })
+}
+
 /* Event Listener (on Load) */
 window.addEventListener('load', loadAPIData)
+submitNewTripButton.addEventListener('click', onSubmit)

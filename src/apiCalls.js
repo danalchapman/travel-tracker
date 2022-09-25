@@ -20,7 +20,7 @@ export const getTripData = () => {
 }
 
 /* POST Requests */
-export const postNewTrip = () => {
+export const postNewTrip = (data) => {
     return fetch('http://localhost:3001/api/v1/trips', {
         method: 'POST',
         body: JSON.stringify(data), // send/receive strings only

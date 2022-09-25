@@ -24,14 +24,16 @@
             <label class="new-info" for="trip-destination">Destination</label>
           </section>
           <section class="new-trip-box">
-            <input class="input-box" type="date" name="trip-date" id="trip-date-input">
-            <input class="input-box" type="number" name="trip-travelers" id="trip-travelers-input">
-            <input class="input-box" type="number" name="trip-duration" id="trip-duration-input">
-            <input class="input-box" type="text" name="trip-destination" id="trip-destination-input">
+            <input class="input-box" type="date" name="trip-date" id="trip-date-input"/>
+            <input class="input-box" type="number" name="trip-travelers" id="trip-travelers-input" required/>
+            <input class="input-box" type="number" name="trip-duration" id="trip-duration-input" required/>
+            <select class="input-box" type="text" name="trip-destination" id="trip-destination-input">
+              <option value="selectDestination" disabled selected>Select Destination</option>
+            </select>
           </section>
           <section class="new-trip-box submit-box">
             <p class="total-due">Amount Due: $$$</p>
-            <button class="submit-new-trip design">Submit</button>
+            <button class="submit-new-trip design" id="new-trip-submit">Submit</button>
           </section>
         </form>
       </article>
