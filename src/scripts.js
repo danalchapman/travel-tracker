@@ -81,13 +81,12 @@ function generateDestinationDropdown() {
     }).join('')
 }
 
-function onSubmit(e) {
-    e.preventDefault()
+function createNewTrip() {
     const tripDate = newTripDate.value.replaceAll('-', '/')
     const tripTravelers = parseInt(newTripTravelers.value)
     const tripDuration = parseInt(newTripDuration.value)
     const tripDestination = parseInt(newTripDestination.value)
-    const newTripInfo = {
+    return {
         id: Date.now(),
         userID: travelerID,
         destinationID: tripDestination,
@@ -97,6 +96,11 @@ function onSubmit(e) {
         status: "pending",
         suggestedActivities: []
     }
+}
+
+function onSubmit(e) {
+    e.preventDefault()
+    const newTripInfo = createNewTrip()
     return Promise.all([postNewTrip(newTripInfo)])
         .then(response => {
             const newTrip = new Trip(response[0].newTrip)
@@ -106,22 +110,16 @@ function onSubmit(e) {
             newTripDate.value = ''
             newTripTravelers.value = ''
             newTripDuration.value = ''
-            newTripDestination.value = 'selectDestination'
+            newTripDestination.value = '0'
             newTripTotal.innerText = '0.00'
         })
 }
 
 function renderNewTripPrice() {
-    const tripTravelers = parseInt(newTripTravelers.value)
-    const tripDuration = parseInt(newTripDuration.value)
-    const tripDestination = parseInt(newTripDestination.value)
-    const newDestination = destinationData.find(destination => {
-        return destination.id === tripDestination
-    })
-    if (tripTravelers && tripDuration && newDestination) {
-        const lodging = newDestination.estimatedLodgingCostPerDay * parseInt(newTripDuration.value)
-        const flight = newDestination.estimatedFlightCostPerPerson * parseInt(newTripTravelers.value)
-        newTripTotal.innerText = ((lodging + flight) * 1.1).toFixed(2)
+    const newTrip = new Trip(createNewTrip())
+    newTrip.storeDestination(destinationData)
+    if (newTrip.travelers && newTrip.duration && newTrip.destinationID) {
+        newTripTotal.innerText = newTrip.calculateTripCost().toFixed(2)
     } else {
         newTripTotal.innerText = '0.00'
     }
