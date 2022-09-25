@@ -96,7 +96,12 @@ body {
 }
 
 /* Trip Footer */
-.footer-yearly-spent {
+.bottom-card {
+  align-items: center;
+  display: flex;
+}
+
+.footer-text {
   color: antiquewhite;
   font-size: 18px;
 }
