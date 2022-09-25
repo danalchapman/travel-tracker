@@ -1,3 +1,4 @@
+/* GET Requests */
 export const getDestinationData = () => {
     return fetch('http://localhost:3001/api/v1/destinations')
     .then(response => response.json())
@@ -16,4 +17,18 @@ export const getSingleTravelerData = (id) => {
 export const getTripData = () => { 
     return fetch('http://localhost:3001/api/v1/trips')
     .then(response => response.json())
+}
+
+/* POST Requests */
+export const postNewTrip = () => {
+    return fetch('http://localhost:3001/api/v1/trips', {
+        method: 'POST',
+        body: JSON.stringify(data), // send/receive strings only
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    // .then(json => console.log('Trip with id <id> successfully posted', json))
+    // .catch(err => console.log("Error:", err))
 }
