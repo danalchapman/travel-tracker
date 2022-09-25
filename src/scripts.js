@@ -16,7 +16,7 @@ const yearlyTotal = document.querySelector('#yearly-total')
 
 /* Instances */
 let destinationData, travelerData, tripData
-const travelerID = 2 // need to convert when get to iteration 4 (log in page)
+const travelerID = 3 // need to convert when get to iteration 4 (log in page)
 
 /* apiCalls */
 const loadAPIData = () => {
@@ -60,7 +60,7 @@ function handleTrips(card, trips) {
 }
 
 function displayTrips() {
-    const sortedTrips = travelerData.sortTrips(tripData, "2020/03/01")
+    const sortedTrips = travelerData.sortTrips(tripData, "2020/12/31")
     handleTrips(pastTrips, sortedTrips.past)
     handleTrips(pendingTrips, sortedTrips.pending)
     handleTrips(upcomingTrips, sortedTrips.upcoming)
