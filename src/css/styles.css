@@ -135,6 +135,7 @@ body {
   align-items: center;
   background-color: #81566A;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 3px;
+  color: antiquewhite;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
