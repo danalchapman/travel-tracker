@@ -14,15 +14,15 @@ body {
   justify-content: space-around;
 }
 
-.nav-greeting {
-  font-size: 14px;
-  font-style: italic;
-}
-
 .nav-users {
   align-items: center;
   display: flex;
   justify-content: space-around;
+}
+
+.nav-greeting {
+  font-size: 14px;
+  font-style: italic;
 }
 
 .design {
@@ -107,9 +107,21 @@ body {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 3px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   height: 400px;
   width: 275px;
+}
+
+.card-wrap {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.card-wrap::-webkit-scrollbar {
+  display: none;
 }
 
 .card-text {
@@ -119,10 +131,13 @@ body {
 }
 
 .info-card {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 3px;
   color: antiquewhite;
   display: flex;
   flex-direction: column;
   font-size: 14px;
   justify-content: space-between;
+  margin: 8px 0px;
+  padding: 4px;
   width: 225px;
 }
