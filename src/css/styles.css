@@ -156,9 +156,10 @@ body {
 }
 
 .card-text {
-  text-align: left;
   color: white;
+  font-size: 20px;
   font-style: italic;
+  text-align: left;
 }
 
 .info-card {
