@@ -22,6 +22,7 @@ const submitNewTripButton = document.querySelector('#new-trip-submit')
 const loginPage = document.querySelector('#login')
 const mainPageNav = document.querySelector('#nav-main')
 const mainPageMain = document.querySelector('#main')
+const loginPageError = document.querySelector('#user-error')
 
 /* Instances */
 let destinationData, travelerData, tripData
@@ -32,8 +33,13 @@ const loadAPIData = () => {
     return Promise.all([getDestinationData(), getSingleTravelerData(travelerID), getTripData()])
     .then(responses => {
         destinationData = responses[0].destinations
-        
-        travelerData = new Traveler(responses[1])
+
+        if (responses[1].status === 404) {
+            loginPageError.innerHTML = 'Your username or password does not match our systems records, please check your information is correct.'
+        } else {
+            travelerData = new Traveler(responses[1])
+            loginPageError.innerHTML = ''
+        }
         
         tripData = responses[2].trips
             .filter(trip => trip.userID === travelerID)
@@ -52,12 +58,10 @@ const loadAPIData = () => {
 /* Functions */ 
 function onLogin(e) {
     e.preventDefault()
-    if (loginUsername.value && loginPassword.value === 'travel') {
-        travelerID = parseInt(loginUsername.value.replace('traveler', ''))
+    if (loginUsername.value.includes('traveler') && loginPassword.value === 'travel') {
+        travelerID = parseInt(loginUsername.value.split('traveler')[1])
         loadAPIData()
-    } else {
-        console.log('Err')
-    }
+    } 
 }
 
 function checkSubmitLoginEligibility() {

@@ -51,6 +51,13 @@ body {
   cursor: not-allowed
 }
 
+.login-error {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 3px;
+  font-size: 12px;
+  font-style: italic;
+  padding: 10px;
+}
+
 /* Main View */
 /* Navigation */
 .nav-menu {

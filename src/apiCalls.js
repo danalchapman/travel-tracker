@@ -6,7 +6,14 @@ export const getDestinationData = () => {
 
 export const getSingleTravelerData = (id) => {
     return fetch(`http://localhost:3001/api/v1/travelers/${id}`)
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            return {status: response.status}
+        } else {
+            return response.json()
+        }
+    })
+    .catch(err => console.error(err))
 }
 
 export const getTripData = () => { 
