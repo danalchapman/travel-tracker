@@ -60,4 +60,12 @@ describe('Trip', () => {
     it('should be able to store the destinations in a new instance', () => {
         expect(trip1.destination).to.deep.equal({})
     })
+
+    it.skip('should be able to store the destination data in the trip instance', () => {
+
+    })
+
+    it.skip('should be able to calculate the total cost for a single trip with a travel agent fee of 10%', () => {
+        
+    })
 })

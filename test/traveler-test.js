@@ -43,8 +43,14 @@ describe('Traveler', () => {
         expect(firstName).to.equal("Ham")
     })
 
-    it('should be able to return the yearly trips cost for a traveler', () => {
+    it('should be able to return the yearly trips cost for a traveler with a travel agent fee of 10%', () => {
         const yearlyTripsCost = traveler1.returnYearlyTripCost(trips, 2022)
         expect(yearlyTripsCost).to.equal("7326.00")
+    })
+
+    it.skip('should be able to return sorted trips for a traveler', () => {
+        const sortedTrips = traveler1.sortTrips(trips, "2022/06/06")
+        console.log(sortedTrips)
+        expect(sortedTrips).to.equal()
     })
 })
