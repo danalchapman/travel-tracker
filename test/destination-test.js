@@ -1,5 +1,5 @@
-import { expect } from "chai"
-import Destination from "../src/destination"
+import { expect } from 'chai'
+import Destination from '../src/destination'
 
 describe('Destination', () => {
     let destination1
@@ -7,11 +7,11 @@ describe('Destination', () => {
     beforeEach(() => {
         destination1 = new Destination({
             id: 1,
-            destination: "Lima, Peru",
+            destination: 'Lima, Peru',
             estimatedLodgingCostPerDay: 70,
             estimatedFlightCostPerPerson: 400,
-            image: "https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80",
-            alt: "overview of city buildings with a clear sky"
+            image: 'https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80',
+            alt: 'overview of city buildings with a clear sky'
         })
     })
 
@@ -28,7 +28,7 @@ describe('Destination', () => {
     })
 
     it('should be able to store a destination name', () => {
-        expect(destination1.name).to.equal("Lima, Peru")
+        expect(destination1.name).to.equal('Lima, Peru')
     })
 
     it('should be able to store a destinations estimated lodging cost per day for all travelers', () => {
@@ -40,10 +40,10 @@ describe('Destination', () => {
     })
 
     it('should be able to store an image of the destination', () => {
-        expect(destination1.image).to.equal("https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80")
+        expect(destination1.image).to.equal('https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80')
     })
 
     it('should be able to store the alt text for the image of the destination', () => {
-        expect(destination1.alt).to.equal("overview of city buildings with a clear sky")
+        expect(destination1.alt).to.equal('overview of city buildings with a clear sky')
     })
 })

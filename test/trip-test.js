@@ -1,5 +1,5 @@
-import { expect } from "chai"
-import Trip from "../src/trip"
+import { expect } from 'chai'
+import Trip from '../src/trip'
 
 describe('Trip', () => {
     let trip1
@@ -10,9 +10,9 @@ describe('Trip', () => {
             userID: 44,
             destinationID: 49,
             travelers: 1,
-            date: "2022/09/16",
+            date: '2022/09/16',
             duration: 8,
-            status: "approved",
+            status: 'approved',
             suggestedActivities: [] 
         })
     })
@@ -42,7 +42,7 @@ describe('Trip', () => {
     })
 
     it('should be able to store a trips start date', () => {
-        expect(trip1.date).to.equal("2022/09/16")
+        expect(trip1.date).to.equal('2022/09/16')
     })
 
     it('should be able to store a trips duration in number of days', () => {
@@ -50,7 +50,7 @@ describe('Trip', () => {
     })
 
     it('should be able to store a trips status', () => {
-        expect(trip1.status).to.equal("approved")
+        expect(trip1.status).to.equal('approved')
     })
 
     it('should be able to store a trips suggested activities', () => {

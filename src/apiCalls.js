@@ -4,11 +4,6 @@ export const getDestinationData = () => {
     .then(response => response.json())
 }
 
-// export const getTravelerData = () => {
-//     return fetch('http://localhost:3001/api/v1/travelers')
-//     .then(response => response.json())
-// }
-
 export const getSingleTravelerData = (id) => {
     return fetch(`http://localhost:3001/api/v1/travelers/${id}`)
     .then(response => response.json())
@@ -23,7 +18,7 @@ export const getTripData = () => {
 export const postNewTrip = (data) => {
     return fetch('http://localhost:3001/api/v1/trips', {
         method: 'POST',
-        body: JSON.stringify(data), // send/receive strings only
+        body: JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json'
         }

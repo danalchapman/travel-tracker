@@ -52,11 +52,11 @@ const loadAPIData = () => {
 /* Functions */ 
 function onLogin(e) {
     e.preventDefault()
-    if (loginUsername.value && loginPassword.value === "travel") {
+    if (loginUsername.value && loginPassword.value === 'travel') {
         travelerID = parseInt(loginUsername.value.replace('traveler', ''))
         loadAPIData()
     } else {
-        console.log("Err")
+        console.log('Err')
     }
 }
 
@@ -98,7 +98,7 @@ function handleTrips(card, trips) {
 }
 
 function displayTrips() {
-    const sortedTrips = travelerData.sortTrips(tripData, "2020/12/31")
+    const sortedTrips = travelerData.sortTrips(tripData, '2020/12/31')
     handleTrips(pastTrips, sortedTrips.past)
     handleTrips(pendingTrips, sortedTrips.pending)
     handleTrips(upcomingTrips, sortedTrips.upcoming)
@@ -126,7 +126,7 @@ function createNewTrip() {
         travelers: tripTravelers,
         date: tripDate,
         duration: tripDuration,
-        status: "pending",
+        status: 'pending',
         suggestedActivities: []
     }
 }
