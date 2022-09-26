@@ -5,6 +5,9 @@ import Trip from './trip'
 import { getDestinationData, getSingleTravelerData, getTripData, postNewTrip } from './apiCalls'
 
 /* Query Selectors */
+const loginUsername = document.querySelector('#user-name')
+const loginPassword = document.querySelector('#user-password')
+const submitLoginButton = document.querySelector('#user-submit')
 const navGreeting = document.querySelector('#nav-greeting-name')
 const pastTrips = document.querySelector('#past-trips')
 const pendingTrips = document.querySelector('#pending-trips')
@@ -16,10 +19,13 @@ const newTripDuration = document.querySelector('#trip-duration-input')
 const newTripDestination = document.querySelector('#trip-destination-input')
 const newTripTotal = document.querySelector('#new-trip-total')
 const submitNewTripButton = document.querySelector('#new-trip-submit')
+const loginPage = document.querySelector('#login')
+const mainPageNav = document.querySelector('#nav-main')
+const mainPageMain = document.querySelector('#main')
 
 /* Instances */
 let destinationData, travelerData, tripData
-const travelerID = 3 
+let travelerID 
 
 /* apiCalls */
 const loadAPIData = () => {
@@ -36,13 +42,40 @@ const loadAPIData = () => {
     })
     .then(() => {
         displayTravelerGreeting()
-        displayYearlyTripTotal()
         displayTrips()
+        displayYearlyTripTotal()
         generateDestinationDropdown()
+        hideLoginShowMain()
     })
 }
 
 /* Functions */ 
+function onLogin(e) {
+    e.preventDefault()
+    if (loginUsername.value && loginPassword.value === "travel") {
+        travelerID = loginUsername.value.replace('traveler', '')
+        loadAPIData()
+    } else {
+        console.log("Err")
+    }
+}
+
+function checkSubmitLoginEligibility() {
+    if (loginUsername.value && loginPassword.value) {
+        submitLoginButton.disabled = false
+        submitLoginButton.classList.remove('disable-login-button')
+    } else {
+        submitLoginButton.disabled = true
+        submitLoginButton.classList.add('disable-login-button')
+    }
+}
+
+function hideLoginShowMain() {
+    loginPage.classList.add('hidden')
+    mainPageNav.classList.remove('hidden')
+    mainPageMain.classList.remove('hidden')
+}
+
 function displayTravelerGreeting() {
     navGreeting.innerHTML = `Hello, ${travelerData.returnFirstName()}!`
 }
@@ -139,8 +172,10 @@ function checkSubmitEligibility() {
 }
 
 /* Event Listeners */
-window.addEventListener('load', loadAPIData)
-submitNewTripButton.addEventListener('click', onSubmit)
+loginUsername.addEventListener('input', checkSubmitLoginEligibility)
+loginPassword.addEventListener('input', checkSubmitLoginEligibility)
+submitLoginButton.addEventListener('click', onLogin)
 newTripDestination.addEventListener('change', renderNewTripPrice)
 newTripDuration.addEventListener('input', renderNewTripPrice)
 newTripTravelers.addEventListener('input', renderNewTripPrice)
+submitNewTripButton.addEventListener('click', onSubmit)
