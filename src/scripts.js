@@ -19,7 +19,7 @@ const submitNewTripButton = document.querySelector('#new-trip-submit')
 
 /* Instances */
 let destinationData, travelerData, tripData
-const travelerID = 3 // need to convert when get to iteration 4 (log in page)
+const travelerID = 3 
 
 /* apiCalls */
 const loadAPIData = () => {
@@ -42,7 +42,7 @@ const loadAPIData = () => {
     })
 }
 
-/* Functions */ // when convert to ES6/arrow functions, function must be declared before invocation
+/* Functions */ 
 function displayTravelerGreeting() {
     navGreeting.innerHTML = `Hello, ${travelerData.returnFirstName()}!`
 }
