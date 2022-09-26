@@ -53,7 +53,7 @@ const loadAPIData = () => {
 function onLogin(e) {
     e.preventDefault()
     if (loginUsername.value && loginPassword.value === "travel") {
-        travelerID = loginUsername.value.replace('traveler', '')
+        travelerID = parseInt(loginUsername.value.replace('traveler', ''))
         loadAPIData()
     } else {
         console.log("Err")
