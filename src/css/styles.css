@@ -6,6 +6,50 @@ body {
 }
 
 /* Log-In View */
+.user-screen {
+  align-items: center;
+  background-attachment: fixed;
+  background-image: url('https://images.unsplash.com/photo-1659458449825-1eb66f098d36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
+  margin: 0px;
+}
+
+.page-title {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 3px;
+  font-size: 65px;
+  font-style: italic;
+  font-weight: bolder;
+  padding: 20px;
+}
+
+.log-in {
+  height: 100px;
+  width: 300px;
+}
+
+.user {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.login-button {
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  width: 100px;
+}
+
+.disable-login-button {
+  cursor: not-allowed
+}
 
 /* Main View */
 /* Navigation */
