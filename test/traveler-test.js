@@ -72,6 +72,43 @@ describe('Traveler', () => {
             }
           ])
         expect(sortedTrips.pending).to.deep.equal([])
-        // expect(sortedTrips.upcoming).to.deep.equal([])
+        expect(sortedTrips.upcoming).to.deep.equal([
+            {
+                id: 1,
+                userID: 1,
+                destinationID: 1,
+                travelers: 1,
+                date: '2022/09/16',
+                duration: 8,
+                status: 'approved',
+                suggestedActivities: [],
+                destination: {
+                    id: 1,
+                    name: 'Lima, Peru',
+                    lodgingCost: 70,
+                    flightCost: 400,
+                    image: 'https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80',
+                    alt: 'overview of city buildings with a clear sky'
+                } 
+            },
+            {
+                id: 2,
+                userID: 1,
+                destinationID: 2,
+                travelers: 5,
+                date: '2022/10/04',
+                duration: 18,
+                status: 'approved',
+                suggestedActivities: [],
+                destination: {
+                    id: 2,
+                    name: 'Stockholm, Sweden',
+                    lodgingCost: 100,
+                    flightCost: 780,
+                    image: 'https://images.unsplash.com/photo-1560089168-6516081f5bf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+                    alt: 'city with boats on the water during the day time'
+                }
+            }
+        ])
     })
 })
