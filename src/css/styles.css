@@ -5,6 +5,9 @@ body {
   margin: 0px;
 }
 
+/* Log-In View */
+
+/* Main View */
 /* Navigation */
 .nav-menu {
   align-items: center;
@@ -48,7 +51,7 @@ body {
   height: 100vh;
 }
 
-/* Trip Bars */
+/* Trip Cards */
 .content {
   display: flex;
   justify-content: space-evenly;
@@ -172,4 +175,8 @@ body {
   margin: 8px 0px;
   padding: 4px;
   width: 225px;
+}
+
+.hidden {
+  display: none;
 }

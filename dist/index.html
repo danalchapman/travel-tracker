@@ -7,14 +7,22 @@
     <title>Dusk & Dawn Destinations</title>
   </head>
   <body>
-    <nav class="nav-menu">
+    <section class="user-screen">
+      <p>Dusk & Dawn Destinations</p>
+      <form class="log-in">
+        <label class="user">Username: <input class="username-input" type="text" name="username" id="user-name" required/></label>
+        <label class="user">Password: <input class="password-input" type="text" name="password" id="user-password" required/></label>
+        <button class="login-button disable-login-button" id="user-submit" disabled>Log In</button>
+      </form>
+    </section>
+    <nav class="nav-menu hidden">
       <h1>Dusk & Dawn Destinations</h1>
       <section class="nav-users">
         <p class="nav-greeting" id="nav-greeting-name">Hello, firstName</p>
         <button class="button-design disable-button" disabled>Log Out</button>
       </section>
     </nav>
-    <section class="main-content">
+    <section class="main-content hidden">
       <article class="content">
         <form class="main-new-trip long-card">
           <section class="new-trip-box">
