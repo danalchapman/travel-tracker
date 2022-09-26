@@ -13,9 +13,7 @@ class Traveler {
     returnYearlyTripCost(trips, year) {
         return trips.reduce((acc, trip) => {
             if (trip.status === "approved" && trip.date.includes(year)) {
-                const lodging = trip.destination.lodgingCost * trip.duration
-                const flight = trip.destination.flightCost * trip.travelers
-                acc += ((lodging + flight) * 1.1)
+                acc += trip.calculateTripCost()
             }
 
             return acc

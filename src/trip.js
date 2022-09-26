@@ -15,7 +15,15 @@ class Trip {
 
     storeDestination(destinationData) {
         const tripDestination = destinationData.find(destination => destination.id === this.destinationID)
-        this.destination = new Destination(tripDestination)
+        if (tripDestination) {
+            this.destination = new Destination(tripDestination)
+        }
+    }
+
+    calculateTripCost() {
+        const lodging = this.destination.lodgingCost * this.duration
+        const flight = this.destination.flightCost * this.travelers
+        return (lodging + flight) * 1.1
     }
 }
 

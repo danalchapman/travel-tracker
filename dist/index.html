@@ -11,7 +11,7 @@
       <h1>Dusk & Dawn Destinations</h1>
       <section class="nav-users">
         <p class="nav-greeting" id="nav-greeting-name">Hello, firstName</p>
-        <button class="design">Change User</button>
+        <button class="button-design disable-button" disabled>Log Out</button>
       </section>
     </nav>
     <section class="main-content">
@@ -24,13 +24,16 @@
             <label class="new-info" for="trip-destination">Destination</label>
           </section>
           <section class="new-trip-box">
-            <input class="input-box" type="date" name="trip-date" id="trip-date-input">
-            <input class="input-box" type="number" name="trip-travelers" id="trip-travelers-input">
-            <input class="input-box" type="number" name="trip-duration" id="trip-duration-input">
-            <input class="input-box" type="text" name="trip-destination" id="trip-destination-input">
+            <input class="input-box" type="date" name="trip-date" id="trip-date-input"/>
+            <input class="input-box" type="number" name="trip-travelers" id="trip-travelers-input" required/>
+            <input class="input-box" type="number" name="trip-duration" id="trip-duration-input" required/>
+            <select class="input-box" type="text" name="trip-destination" id="trip-destination-input">
+              <option value="0" disabled selected>Select Destination</option>
+            </select>
           </section>
           <section class="new-trip-box submit-box">
-            <button class="submit-new-trip design">Submit</button>
+            <p class="total-due">Amount Due: $<span id="new-trip-total">0.00</span></p>
+            <button class="submit-button-design disable-button" id="new-trip-submit" disabled>Submit</button>
           </section>
         </form>
       </article>
@@ -49,8 +52,9 @@
         </section>
       </article>
       <article class="content">
-        <section class="long-card">
-          <p class="footer-yearly-spent" id="yearly-total">Total Spent This Year: $$$</p>
+        <section class="long-card bottom-card">
+          <p class="footer-text">Today is: 2020/12/31</p>
+          <p class="footer-text" id="yearly-total">Total Spent This Year: $$$</p>
         </section>
       </article>
     </section>
