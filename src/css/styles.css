@@ -9,7 +9,7 @@ body {
 .nav-menu {
   align-items: center;
   background-color: #343D5B;
-  color: antiquewhite;
+  color: white;
   display: flex;
   justify-content: space-around;
 }
@@ -27,9 +27,9 @@ body {
 
 .button-design {
   background-color: #9B5863;
-  border: 1px solid antiquewhite;
+  border: 1px solid white;
   border-radius: 8%;
-  color: antiquewhite;
+  color: white;
   cursor: not-allowed;
   font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
   font-size: 10px;
@@ -77,12 +77,12 @@ body {
 }
 
 .new-info {
-  color: antiquewhite;
+  color: white;
   width: 175px;
 }
 
 .input-box {
-  width: 125px;
+  width: 175px;
 }
 
 .submit-box {
@@ -90,16 +90,16 @@ body {
 }
 
 .total-due {
-  color: antiquewhite;
+  color: white;
   font-weight: bold;
   text-decoration: underline;
 }
 
 .submit-button-design {
   background-color: #81566A;
-  border: 1px solid antiquewhite;
+  border: 1px solid white;
   border-radius: 8%;
-  color: antiquewhite;
+  color: white;
   cursor: pointer;
   font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
   font-size: 10px;
@@ -121,7 +121,7 @@ body {
 }
 
 .footer-text {
-  color: antiquewhite;
+  color: white;
   font-size: 18px;
 }
 
@@ -135,7 +135,7 @@ body {
   align-items: center;
   background-color: #81566A;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 3px;
-  color: antiquewhite;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -156,14 +156,15 @@ body {
 }
 
 .card-text {
-  text-align: left;
-  color: antiquewhite;
+  color: white;
+  font-size: 20px;
   font-style: italic;
+  text-align: left;
 }
 
 .info-card {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 3px;
-  color: antiquewhite;
+  color: white;
   display: flex;
   flex-direction: column;
   font-size: 14px;

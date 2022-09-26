@@ -18,15 +18,15 @@
       <article class="content">
         <form class="main-new-trip long-card">
           <section class="new-trip-box">
-            <label class="new-info" for="trip-date">Date</label>
-            <label class="new-info" for="trip-travelers">Amount of Travelers</label>
-            <label class="new-info" for="trip-duration">Duration (of Days)</label>
-            <label class="new-info" for="trip-destination">Destination</label>
+            <label class="new-info" for="trip-date-input">Date</label>
+            <label class="new-info" for="trip-travelers-input">Amount of Travelers</label>
+            <label class="new-info" for="trip-duration-input">Duration (of Days)</label>
+            <label class="new-info" for="trip-destination-input">Destination</label>
           </section>
           <section class="new-trip-box">
-            <input class="input-box" type="date" name="trip-date" id="trip-date-input"/>
-            <input class="input-box" type="number" name="trip-travelers" id="trip-travelers-input" required/>
-            <input class="input-box" type="number" name="trip-duration" id="trip-duration-input" required/>
+            <input class="input-box" type="date" name="trip-date" id="trip-date-input" tabindex="0"/>
+            <input class="input-box" type="number" name="trip-travelers" id="trip-travelers-input" placeholder="1" required/>
+            <input class="input-box" type="number" name="trip-duration" id="trip-duration-input" placeholder="2" required/>
             <select class="input-box" type="text" name="trip-destination" id="trip-destination-input">
               <option value="0" disabled selected>Select Destination</option>
             </select>
@@ -38,18 +38,18 @@
         </form>
       </article>
       <article class="card-container">
-        <section class="card">
-          <h3 class="card-text">Past Trips</h3>
+        <article class="card">
+          <p class="card-text">Past Trips</p>
           <section class="card-wrap" id="past-trips"></section>
-        </section>
-        <section class="card">
-          <h3 class="card-text">Pending Trips</h3>
+        </article>
+        <article class="card">
+          <p class="card-text">Pending Trips</p>
           <section class="card-wrap" id="pending-trips"></section>
-        </section>
-        <section class="card">
-          <h3 class="card-text">Upcoming Trips</h3>
+        </article>
+        <article class="card">
+          <p class="card-text">Upcoming Trips</p>
           <section class="card-wrap" id="upcoming-trips"></section>
-        </section>
+        </article>
       </article>
       <article class="content">
         <section class="long-card bottom-card">
