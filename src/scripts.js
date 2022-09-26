@@ -179,6 +179,7 @@ function checkSubmitEligibility() {
 loginUsername.addEventListener('input', checkSubmitLoginEligibility)
 loginPassword.addEventListener('input', checkSubmitLoginEligibility)
 submitLoginButton.addEventListener('click', onLogin)
+newTripDate.addEventListener('change', renderNewTripPrice)
 newTripDestination.addEventListener('change', renderNewTripPrice)
 newTripDuration.addEventListener('input', renderNewTripPrice)
 newTripTravelers.addEventListener('input', renderNewTripPrice)

@@ -157,8 +157,7 @@ body {
   color: white;
   cursor: pointer;
   font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
-  font-size: 10px;
-  height: 20px;
+  font-size: 16px;
   margin-left: 10px;
   padding: 3px;
   width: 100px;
@@ -166,7 +165,8 @@ body {
 
 .disable-button {
   background-color: #9B5863;
-  cursor: not-allowed;
+  color: #b4afaf;
+  cursor: default;
 }
 
 /* Trip Footer */

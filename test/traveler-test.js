@@ -48,9 +48,30 @@ describe('Traveler', () => {
         expect(yearlyTripsCost).to.equal('7326.00')
     })
 
-    it.skip('should be able to return sorted trips for a traveler', () => {
+    it('should be able to return sorted trips for a traveler', () => {
         const sortedTrips = traveler1.sortTrips(trips, '2022/06/06')
-        console.log(sortedTrips)
-        expect(sortedTrips).to.equal()
+        console.log(sortedTrips.upcoming)
+        expect(sortedTrips.past).to.deep.equal([
+            {
+              id: 3,
+              userID: 1,
+              destinationID: 3,
+              travelers: 4,
+              date: '2021/05/22',
+              duration: 17,
+              status: 'approved',
+              suggestedActivities: [],
+              destination: {
+                id: 3,
+                name: 'Sydney, Austrailia',
+                lodgingCost: 130,
+                flightCost: 950,
+                image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+                alt: 'opera house and city buildings on the water with boats'
+              }
+            }
+          ])
+        expect(sortedTrips.pending).to.deep.equal([])
+        // expect(sortedTrips.upcoming).to.deep.equal([])
     })
 })
