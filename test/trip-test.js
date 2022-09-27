@@ -1,20 +1,14 @@
-import { expect } from "chai"
-import Trip from "../src/trip"
+import { expect } from 'chai'
+import Destination from '../src/destination'
+import Trip from '../src/trip'
+import { destinationData } from './mock-data/destination-data'
+import { tripData } from './mock-data/trip-data'
 
 describe('Trip', () => {
     let trip1
 
     beforeEach(() => {
-        trip1 = new Trip({
-            id: 1,
-            userID: 44,
-            destinationID: 49,
-            travelers: 1,
-            date: "2022/09/16",
-            duration: 8,
-            status: "approved",
-            suggestedActivities: [] 
-        })
+        trip1 = new Trip(tripData[0])
     })
 
     it('should be a function', () => {
@@ -30,11 +24,11 @@ describe('Trip', () => {
     })
 
     it('should be able to store a trips userID', () => {
-        expect(trip1.userID).to.equal(44)
+        expect(trip1.userID).to.equal(1)
     })
 
     it('should be able to store a trips destinationID', () => {
-        expect(trip1.destinationID).to.equal(49)
+        expect(trip1.destinationID).to.equal(1)
     })
 
     it('should be able to store the amount of travelers', () => {
@@ -42,7 +36,7 @@ describe('Trip', () => {
     })
 
     it('should be able to store a trips start date', () => {
-        expect(trip1.date).to.equal("2022/09/16")
+        expect(trip1.date).to.equal('2022/09/16')
     })
 
     it('should be able to store a trips duration in number of days', () => {
@@ -50,7 +44,7 @@ describe('Trip', () => {
     })
 
     it('should be able to store a trips status', () => {
-        expect(trip1.status).to.equal("approved")
+        expect(trip1.status).to.equal('approved')
     })
 
     it('should be able to store a trips suggested activities', () => {
@@ -59,5 +53,17 @@ describe('Trip', () => {
 
     it('should be able to store the destinations in a new instance', () => {
         expect(trip1.destination).to.deep.equal({})
+    })
+
+    it('should be able to store the destination data in the trip instance', () => {
+        expect(trip1.destination).to.deep.equal({})
+        trip1.storeDestination(destinationData)
+        expect(trip1.destination).to.deep.equal(new Destination(destinationData[0]))
+    })
+
+    it('should be able to calculate the total cost for a single trip with a travel agent fee of 10%', () => {
+        trip1.storeDestination(destinationData)
+        const tripCost = trip1.calculateTripCost()
+        expect(tripCost).to.equal(1056)
     })
 })

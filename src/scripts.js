@@ -5,6 +5,9 @@ import Trip from './trip'
 import { getDestinationData, getSingleTravelerData, getTripData, postNewTrip } from './apiCalls'
 
 /* Query Selectors */
+const loginUsername = document.querySelector('#user-name')
+const loginPassword = document.querySelector('#user-password')
+const submitLoginButton = document.querySelector('#user-submit')
 const navGreeting = document.querySelector('#nav-greeting-name')
 const pastTrips = document.querySelector('#past-trips')
 const pendingTrips = document.querySelector('#pending-trips')
@@ -16,18 +19,27 @@ const newTripDuration = document.querySelector('#trip-duration-input')
 const newTripDestination = document.querySelector('#trip-destination-input')
 const newTripTotal = document.querySelector('#new-trip-total')
 const submitNewTripButton = document.querySelector('#new-trip-submit')
+const loginPage = document.querySelector('#login')
+const mainPageNav = document.querySelector('#nav-main')
+const mainPageMain = document.querySelector('#main')
+const loginPageError = document.querySelector('#user-error')
 
 /* Instances */
 let destinationData, travelerData, tripData
-const travelerID = 3 // need to convert when get to iteration 4 (log in page)
+let travelerID 
 
 /* apiCalls */
 const loadAPIData = () => {
     return Promise.all([getDestinationData(), getSingleTravelerData(travelerID), getTripData()])
     .then(responses => {
         destinationData = responses[0].destinations
-        
-        travelerData = new Traveler(responses[1])
+
+        if (responses[1].status === 404) {
+            loginPageError.innerHTML = 'Your username or password does not match our systems records, please check your information is correct.'
+        } else {
+            travelerData = new Traveler(responses[1])
+            loginPageError.innerHTML = ''
+        }
         
         tripData = responses[2].trips
             .filter(trip => trip.userID === travelerID)
@@ -36,13 +48,38 @@ const loadAPIData = () => {
     })
     .then(() => {
         displayTravelerGreeting()
-        displayYearlyTripTotal()
         displayTrips()
+        displayYearlyTripTotal()
         generateDestinationDropdown()
+        hideLoginShowMain()
     })
 }
 
-/* Functions */ // when convert to ES6/arrow functions, function must be declared before invocation
+/* Functions */ 
+function onLogin(e) {
+    e.preventDefault()
+    if (loginUsername.value.includes('traveler') && loginPassword.value === 'travel') {
+        travelerID = parseInt(loginUsername.value.split('traveler')[1])
+        loadAPIData()
+    } 
+}
+
+function checkSubmitLoginEligibility() {
+    if (loginUsername.value && loginPassword.value) {
+        submitLoginButton.disabled = false
+        submitLoginButton.classList.remove('disable-login-button')
+    } else {
+        submitLoginButton.disabled = true
+        submitLoginButton.classList.add('disable-login-button')
+    }
+}
+
+function hideLoginShowMain() {
+    loginPage.classList.add('hidden')
+    mainPageNav.classList.remove('hidden')
+    mainPageMain.classList.remove('hidden')
+}
+
 function displayTravelerGreeting() {
     navGreeting.innerHTML = `Hello, ${travelerData.returnFirstName()}!`
 }
@@ -65,7 +102,7 @@ function handleTrips(card, trips) {
 }
 
 function displayTrips() {
-    const sortedTrips = travelerData.sortTrips(tripData, "2020/12/31")
+    const sortedTrips = travelerData.sortTrips(tripData, '2020/12/31')
     handleTrips(pastTrips, sortedTrips.past)
     handleTrips(pendingTrips, sortedTrips.pending)
     handleTrips(upcomingTrips, sortedTrips.upcoming)
@@ -93,7 +130,7 @@ function createNewTrip() {
         travelers: tripTravelers,
         date: tripDate,
         duration: tripDuration,
-        status: "pending",
+        status: 'pending',
         suggestedActivities: []
     }
 }
@@ -139,8 +176,11 @@ function checkSubmitEligibility() {
 }
 
 /* Event Listeners */
-window.addEventListener('load', loadAPIData)
-submitNewTripButton.addEventListener('click', onSubmit)
+loginUsername.addEventListener('input', checkSubmitLoginEligibility)
+loginPassword.addEventListener('input', checkSubmitLoginEligibility)
+submitLoginButton.addEventListener('click', onLogin)
+newTripDate.addEventListener('change', renderNewTripPrice)
 newTripDestination.addEventListener('change', renderNewTripPrice)
 newTripDuration.addEventListener('input', renderNewTripPrice)
 newTripTravelers.addEventListener('input', renderNewTripPrice)
+submitNewTripButton.addEventListener('click', onSubmit)
