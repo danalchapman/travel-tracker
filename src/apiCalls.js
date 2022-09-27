@@ -2,6 +2,8 @@
 export const getDestinationData = () => {
     return fetch('http://localhost:3001/api/v1/destinations')
     .then(response => response.json())
+    .then(data => data)
+    .catch(error => console.log(error))
 }
 
 export const getSingleTravelerData = (id) => {
@@ -19,6 +21,8 @@ export const getSingleTravelerData = (id) => {
 export const getTripData = () => { 
     return fetch('http://localhost:3001/api/v1/trips')
     .then(response => response.json())
+    .then(data => data)
+    .catch(error => console.log(error))
 }
 
 /* POST Requests */
@@ -31,4 +35,6 @@ export const postNewTrip = (data) => {
         }
     })
     .then(response => response.json())
+    .then(data => data)
+    .catch(error => console.log(error))
 }
