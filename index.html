@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dusk & Dawn Destinations</title>
+  </head>
+  <body>
+    <article class="user-screen" id="login">
+      <p class="page-title">Dusk & Dawn Destinations</p>
+      <form class="log-in">
+        <label class="user">Username: <input class="username-input" type="text" name="username" id="user-name" required/></label>
+        <label class="user">Password: <input class="password-input" type="text" name="password" id="user-password" required/></label>
+        <button class="login-button disable-login-button" id="user-submit" disabled>Log In</button>
+      </form>
+      <p class="login-error" id="user-error">Travel in Twilight</p>
+    </article>
+    <nav class="nav-menu hidden" id="nav-main">
+      <h1>Dusk & Dawn Destinations</h1>
+      <section class="nav-users">
+        <p class="nav-greeting" id="nav-greeting-name">Hello, firstName</p>
+        <button class="button-design disable-button" disabled>Log Out</button>
+      </section>
+    </nav>
+    <section class="main-content hidden" id="main">
+      <article class="content">
+        <form class="main-new-trip long-card">
+          <section class="new-trip-box">
+            <label class="new-info" for="trip-date-input">Date</label>
+            <label class="new-info" for="trip-travelers-input">Amount of Travelers</label>
+            <label class="new-info" for="trip-duration-input">Duration (of Days)</label>
+            <label class="new-info" for="trip-destination-input">Destination</label>
+          </section>
+          <section class="new-trip-box">
+            <input class="input-box" type="date" name="trip-date" id="trip-date-input" tabindex="0"/>
+            <input class="input-box" type="number" name="trip-travelers" id="trip-travelers-input" placeholder="1" required/>
+            <input class="input-box" type="number" name="trip-duration" id="trip-duration-input" placeholder="2" required/>
+            <select class="input-box" type="text" name="trip-destination" id="trip-destination-input">
+              <option value="0" disabled selected>Select Destination</option>
+            </select>
+          </section>
+          <section class="new-trip-box submit-box">
+            <p class="total-due">Amount Due: $<span id="new-trip-total">0.00</span></p>
+            <button class="submit-button-design disable-button" id="new-trip-submit" disabled>Submit</button>
+          </section>
+        </form>
+      </article>
+      <article class="card-container">
+        <article class="card">
+          <p class="card-text">Past Trips</p>
+          <section class="card-wrap" id="past-trips"></section>
+        </article>
+        <article class="card">
+          <p class="card-text">Pending Trips</p>
+          <section class="card-wrap" id="pending-trips"></section>
+        </article>
+        <article class="card">
+          <p class="card-text">Upcoming Trips</p>
+          <section class="card-wrap" id="upcoming-trips"></section>
+        </article>
+      </article>
+      <article class="content">
+        <section class="long-card bottom-card">
+          <p class="footer-text">Today is: 2020/12/31</p>
+          <p class="footer-text" id="yearly-total">Total Spent This Year: $$$</p>
+        </section>
+      </article>
+    </section>
+    <script src="bundle.js"></script>
+  </body>
+</html>
